@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Ansa Lia Regi, a Statistics student at CHRIST University interested in data analytics and data science.">
+  <title>Ansa Lia Regi | Portfolio</title>
+  <style>
+    :root {
+      --ink: #17243b;
+      --muted: #66748a;
+      --blue: #315fce;
+      --blue-dark: #244aa5;
+      --pale: #edf3ff;
+      --line: #e3e9f2;
+      --white: #ffffff;
+      --bg: #f7f9fd;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      max-width: 1080px; margin: auto; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand { font-weight: 750; letter-spacing: -.4px; }
+    .brand span { color: var(--blue); }
+    .navlinks { display: flex; gap: 24px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--blue); }
+    .wrap { max-width: 1080px; margin: auto; padding: 0 24px; }
+    .hero {
+      padding: 92px 0 76px;
+      display: grid; grid-template-columns: 1.45fr .8fr;
+      align-items: center; gap: 48px;
+    }
+    .eyebrow {
+      display: inline-block; color: var(--blue); background: var(--pale);
+      border-radius: 30px; padding: 6px 13px; font-size: .82rem;
+      font-weight: 700; letter-spacing: .3px;
+    }
+    h1 { font-size: clamp(2.7rem, 6vw, 4.7rem); line-height: 1.05; letter-spacing: -2.7px; margin: 20px 0 18px; }
+    h1 span { color: var(--blue); }
+    .intro { max-width: 650px; color: var(--muted); font-size: 1.1rem; margin: 0 0 28px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-block; padding: 11px 19px; border-radius: 9px;
+      font-weight: 650; font-size: .94rem; transition: .2s ease;
+    }
+    .primary { color: white; background: var(--blue); }
+    .primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .secondary { border: 1px solid #cbd5e5; background: white; }
+    .secondary:hover { border-color: var(--blue); color: var(--blue); }
+    .hero-card {
+      background: linear-gradient(145deg, #eaf1ff, #ffffff 72%);
+      border: 1px solid #dce6fb; border-radius: 24px; padding: 34px;
+      min-height: 280px; display: flex; flex-direction: column; justify-content: center;
+      box-shadow: 0 18px 45px rgba(35, 70, 140, .08);
+    }
+    .monogram {
+      width: 76px; height: 76px; border-radius: 22px;
+      display: grid; place-items: center; background: var(--blue);
+      color: white; font-size: 1.7rem; font-weight: 750; margin-bottom: 22px;
+    }
+    .hero-card strong { font-size: 1.2rem; }
+    .hero-card p { color: var(--muted); margin: 7px 0 0; }
+    section { padding: 58px 0; }
+    .section-head { margin-bottom: 28px; }
+    .section-head small { color: var(--blue); font-weight: 750; text-transform: uppercase; letter-spacing: 1.4px; }
+    h2 { font-size: 2rem; letter-spacing: -.8px; margin: 5px 0 0; }
+    .about-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 24px; }
+    .card {
+      background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+      padding: 26px; box-shadow: 0 8px 25px rgba(20, 40, 80, .035);
+    }
+    .card p { color: var(--muted); margin: 0; }
+    .fact { padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .fact:last-child { border-bottom: 0; padding-bottom: 0; }
+    .fact span { display: block; color: var(--muted); font-size: .84rem; }
+    .fact strong { font-size: .98rem; }
+    .education { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; }
+    .education h3, .card h3 { margin: 0 0 5px; font-size: 1.08rem; }
+    .sub { color: var(--muted); font-size: .94rem; }
+    .tag {
+      display: inline-block; padding: 5px 10px; border-radius: 20px;
+      background: var(--pale); color: var(--blue-dark); font-size: .8rem; font-weight: 700;
+      white-space: nowrap;
+    }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 15px; }
+    .skill {
+      padding: 7px 12px; border-radius: 8px; background: #f3f6fb;
+      border: 1px solid #e6ebf3; color: #34445e; font-size: .9rem;
+    }
+    .project-note {
+      border: 1px dashed #b9c9e8; background: #f0f5ff; border-radius: 16px;
+      padding: 28px; color: var(--muted);
+    }
+    .project-note strong { display: block; color: var(--ink); margin-bottom: 7px; font-size: 1.08rem; }
+    .activities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .activity { display: flex; gap: 14px; }
+    .activity-icon {
+      flex: 0 0 40px; height: 40px; border-radius: 12px;
+      background: var(--pale); color: var(--blue); display: grid; place-items: center; font-weight: 800;
+    }
+    .activity p { color: var(--muted); margin: 3px 0 0; font-size: .93rem; }
+    .contact {
+      background: #17243b; color: white; border-radius: 22px; padding: 38px;
+      display: flex; align-items: center; justify-content: space-between; gap: 28px;
+    }
+    .contact p { color: #c3cee0; margin: 7px 0 0; }
+    .contact .btn { background: white; color: var(--ink); white-space: nowrap; }
+    footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: .86rem; }
+    @media (max-width: 760px) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      .navlinks { flex-wrap: wrap; gap: 14px; }
+      .hero { grid-template-columns: 1fr; padding: 62px 0 48px; gap: 28px; }
+      .hero-card { min-height: auto; }
+      .about-grid, .skills-grid, .activities { grid-template-columns: 1fr; }
+      .education, .contact { flex-direction: column; }
+      .contact { align-items: flex-start; }
+      h1 { letter-spacing: -1.7px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="#home">Ansa <span>Lia Regi</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" id="home">
+        <div>
+          <span class="eyebrow">Statistics Student · CHRIST University</span>
+          <h1>Hello, I'm<br><span>Ansa Lia Regi.</span></h1>
+          <p class="intro">
+            I’m a second-year Statistics student interested in data analytics and
+            using statistical thinking to understand real-world problems. I’m
+            building my technical skills and exploring how data can support
+            clearer, more informed decisions.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn secondary" href="#about">More about me</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="monogram">AR</div>
+          <strong>Curious about data.</strong>
+          <p>Learning, analysing and growing one step at a time.</p>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <small>Introduction</small>
+          <h2>About me</h2>
+        </div>
+        <div class="about-grid">
+          <div class="card">
+            <p>
+              I’m currently pursuing a degree in Statistics at CHRIST University,
+              Bengaluru. My academic interests include statistics, data analysis
+              and the practical use of programming tools. I enjoy learning through
+              coursework, collaborating with others and taking part in college
+              activities. I’m working towards strengthening my analytical and
+              problem-solving abilities while gaining practical experience.
+            </p>
+          </div>
+          <div class="card">
+            <div class="fact"><span>Based in</span><strong>Bengaluru, India</strong></div>
+            <div class="fact"><span>From</span><strong>Kerala, India</strong></div>
+            <div class="fact"><span>Languages</span><strong>English · Malayalam · Hindi</strong></div>
+            <div class="fact"><span>Area of interest</span><strong>Data analytics & statistics</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="section-head">
+          <small>Academic background</small>
+          <h2>Education</h2>
+        </div>
+        <div class="card education">
+          <div>
+            <h3>CHRIST (Deemed to be University)</h3>
+            <div class="sub">B.Sc. in Data Science and Statistics · Bengaluru, India</div>
+            <div class="sub">Undergraduate student · Second year</div>
+          </div>
+          <span class="tag">2025 – Present</span>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-head">
+          <small>What I'm learning</small>
+          <h2>Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="card">
+            <h3>Technical skills</h3>
+            <p>Tools and concepts I have been learning through coursework and practice.</p>
+            <div class="skill-list">
+              <span class="skill">Python</span>
+              <span class="skill">R Programming</span>
+              <span class="skill">SQL / MySQL</span>
+              <span class="skill">Microsoft Excel</span>
+              <span class="skill">Data Analysis</span>
+              <span class="skill">Data Visualisation</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Personal skills</h3>
+            <p>Skills I bring to collaborative academic and team settings.</p>
+            <div class="skill-list">
+              <span class="skill">Problem-solving</span>
+              <span class="skill">Teamwork</span>
+              <span class="skill">Communication</span>
+              <span class="skill">Time management</span>
+              <span class="skill">Adaptability</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <small>Work in progress</small>
+          <h2>Projects</h2>
+        </div>
+        <div class="project-note">
+          <strong>Projects coming soon</strong>
+          I’m currently developing my practical experience through coursework and
+          independent learning. This section will be updated as I complete projects
+          and have work to share.
+        </div>
+      </section>
+
+      <section id="activities">
+        <div class="section-head">
+          <small>Beyond academics</small>
+          <h2>Activities & involvement</h2>
+        </div>
+        <div class="activities">
+          <div class="card activity">
+            <div class="activity-icon">01</div>
+            <div>
+              <h3>Department events</h3>
+              <p>Volunteered in college department events and supported event activities.</p>
+            </div>
+          </div>
+          <div class="card activity">
+            <div class="activity-icon">02</div>
+            <div>
+              <h3>College clubs</h3>
+              <p>Participate in college clubs and student-led activities.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact">
+          <div>
+            <h2>Let's connect.</h2>
+            <p>I'm open to learning opportunities, collaboration and conversations around data.</p>
+          </div>
+          <a class="btn" href="mailto:ansa.liaregi@gmail.com">Email me</a>
+        </div>
+        <div style="padding:18px 2px 0; color:var(--muted); font-size:.92rem;">
+          <span>Email: <a href="mailto:ansa.liaregi@gmail.com">ansa.liaregi@gmail.com</a></span>
+          &nbsp; · &nbsp;
+          <span>LinkedIn: <a href="https://www.linkedin.com/in/ansa-lia-regi-6bb209370/" target="_blank" rel="noopener">View profile</a></span>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>© 2026 Ansa Lia Regi · Personal portfolio</footer>
+</body>
+</html>
